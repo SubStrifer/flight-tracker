@@ -17,6 +17,7 @@ import java.util.ArrayList;
 public class FlightManager {
 
     private FlightTrackerGUI gui;
+    private ArrayList<Airport> airports;
     private ArrayList<Aeroplane> planes;
 
     /**
@@ -24,6 +25,7 @@ public class FlightManager {
      */
     public FlightManager() {
         gui = new FlightTrackerGUI();
+        airports = Airport.loadAirports();
         planes = Aeroplane.loadAeroplanes();
     }
 
