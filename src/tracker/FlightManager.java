@@ -9,18 +9,22 @@
  */
 package tracker;
 
+import java.util.ArrayList;
+
 /**
  * FlightManager is the main class of the FlightTracker.
  */
 public class FlightManager {
 
     private FlightTrackerGUI gui;
+    private ArrayList<Aeroplane> planes;
 
     /**
      * FlightManager constructor.
      */
     public FlightManager() {
         gui = new FlightTrackerGUI();
+        planes = Aeroplane.loadAeroplanes();
     }
 
     public static void main(String[] args) {
