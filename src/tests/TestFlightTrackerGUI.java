@@ -13,7 +13,7 @@ public class TestFlightTrackerGUI {
     @Test
     public void testFlightTrackerGUI() {
         try {
-            assertNotNull(new FlightTrackerGUI());
+            assertNotNull(new FlightTrackerGUI(new FlightManager()));
         } catch (Exception e) {
             fail("Constructor for FlightTrackerGUI failed: " + e.getMessage());
         }

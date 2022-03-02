@@ -31,6 +31,22 @@ public class Airport {
         this.code = code;
     }
 
+    /**
+     * Get distance from this Airport to the other Airport.
+     * @return distance in km
+     */
+    public double distanceTo(Airport other) {
+        double radianLatitude1 = coordinate.getLatitude() * (Math.PI / 180.0);
+        double radianLongitude1 = coordinate.getLongitude() * (Math.PI / 180.0);
+        double radianLatitude2 = other.coordinate.getLatitude() * (Math.PI / 180.0);
+        double radianLongitude2 = other.coordinate.getLongitude() * (Math.PI / 180.0);
+        double deltaLatitude = radianLatitude2 - radianLatitude1;
+        double deltaLongitude = radianLongitude2 - radianLongitude1;
+        double trigo = Math.sin(Math.pow(deltaLatitude / 2.0, 2)) + Math.cos(radianLatitude1) *
+            Math.cos(radianLatitude2) * Math.sin(Math.pow(deltaLongitude / 2.0, 2));
+        return 12742.0 * Math.asin(Math.sqrt(trigo));
+    }
+
     /**Load all airports from a file. */
     public static ArrayList<Airport> loadAirports() {
         ArrayList<Airport> airports = new ArrayList<Airport>();

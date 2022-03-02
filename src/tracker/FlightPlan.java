@@ -32,4 +32,15 @@ public class FlightPlan {
         //todo should throw out of bounds
         return airports.get(airports.size() - 1);
     }
+
+    /**
+     * Calculate distance travelled during this entire flight.
+     */
+    public double calculateDistance() {
+        double distance = 0.0;
+        for(int i = 0; i < airports.size() - 1; i++) {
+            distance += airports.get(i).distanceTo(airports.get(i + 1));
+        }
+        return distance;
+    }
 }

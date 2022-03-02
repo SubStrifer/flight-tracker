@@ -27,6 +27,20 @@ public class Flight {
         this.flightPlan = flightPlan;
     }
 
+    /**
+     * Get two-letter Airline code of this flight.
+     */
+    public String getAirlineCode() {
+        return number.substring(0, 2);
+    }
+
+    /**
+     * Get distance travelled during this entire flight.
+     */
+    public double getDistance() {
+        return flightPlan.calculateDistance();
+    }
+
     /**Load all flights from a file. */
     public static ArrayList<Flight> loadFlights(FlightManager manager) {
         ArrayList<Flight> flights = new ArrayList<Flight>();
