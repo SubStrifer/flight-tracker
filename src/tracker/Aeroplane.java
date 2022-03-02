@@ -22,10 +22,18 @@ public class Aeroplane {
             throw new IllegalArgumentException("Aeroplane speed and consumption must be a positive value.");
         }
         //todo negative
-        this.model = model;
+        this.setModel(model);
         this.manufacturer = manufacturer;
         this.speed = speed;
         this.consumption = consumption;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    private void setModel(String model) {
+        this.model = model;
     }
 
     /**Load all planes from a file. */
@@ -57,4 +65,6 @@ public class Aeroplane {
 
         return planes;
     }
+
+    
 }

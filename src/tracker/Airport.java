@@ -18,11 +18,19 @@ public class Airport {
             coordinate == null) {
                 throw new IllegalArgumentException("Airport code, name, and coordinate cannot be empty or null.");
             }
-        this.code = code;
+        this.setCode(code);
         this.name = name;
         this.coordinate = coordinate;
     }
     
+    public String getCode() {
+        return code;
+    }
+
+    private void setCode(String code) {
+        this.code = code;
+    }
+
     /**Load all airports from a file. */
     public static ArrayList<Airport> loadAirports() {
         ArrayList<Airport> airports = new ArrayList<Airport>();
