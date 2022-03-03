@@ -25,6 +25,14 @@ public class Aeroplane {
         this.setModel(model);
         this.manufacturer = manufacturer;
         this.speed = speed;
+        this.setConsumption(consumption);
+    }
+
+    public float getConsumption() {
+        return consumption;
+    }
+
+    private void setConsumption(float consumption) {
         this.consumption = consumption;
     }
 

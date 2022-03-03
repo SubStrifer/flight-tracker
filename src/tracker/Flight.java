@@ -41,6 +41,13 @@ public class Flight {
         return flightPlan.calculateDistance();
     }
 
+    /**
+     * Get total fuel used on this flight.
+     */
+    public double getConsumption() {
+        return (getDistance() / 100.0) * plane.getConsumption();
+    }
+
     /**Load all flights from a file. */
     public static ArrayList<Flight> loadFlights(FlightManager manager) {
         ArrayList<Flight> flights = new ArrayList<Flight>();
