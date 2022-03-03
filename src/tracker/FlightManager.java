@@ -105,8 +105,6 @@ public class FlightManager {
         report += "Average total fuel consumption: " + averageFuel + "l/100km\n";
         report += "Estimated total CO2 emissions: " + Math.round(carbonDioxide) + "kg\n";
         // Write to file
-        System.out.println(report);
-        
         try {
             Files.writeString(Paths.get("data/report.txt"), report, StandardOpenOption.CREATE);
         } catch (IOException e) {
