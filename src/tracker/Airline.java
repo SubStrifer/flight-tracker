@@ -1,6 +1,3 @@
-/**
- * 
- */
 package tracker;
 
 import java.io.IOException;
@@ -28,8 +25,7 @@ public class Airline {
 	        //todo negative
 	        this.code = code;
 	        this.name = name;
-	        
-	}
+		}
 	}
 
 	/**
