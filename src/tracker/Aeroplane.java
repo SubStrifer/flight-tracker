@@ -6,7 +6,9 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-/**Class represents a single plane. */
+/**
+ * Class represents a single plane.
+ */
 public class Aeroplane {
     
     private String model;
@@ -14,7 +16,9 @@ public class Aeroplane {
     private float speed;
     private float consumption;
 
-    /**Aeroplane constructor. */
+    /**
+     * Aeroplane constructor.
+     */
     public Aeroplane(String model, String manufacturer, float speed, float consumption) throws IllegalArgumentException {
         if (Utils.emptyOrWhitespace(model) || Utils.emptyOrWhitespace(manufacturer)) {
             throw new IllegalArgumentException("Aeroplane model and manufacturer cannot be empty or null.");
@@ -44,7 +48,9 @@ public class Aeroplane {
         this.model = model;
     }
 
-    /**Load all planes from a file. */
+    /**
+     * Load all planes from a file.
+     */
     public static ArrayList<Aeroplane> loadAeroplanes() {
         ArrayList<Aeroplane> planes = new ArrayList<Aeroplane>();
         List<String> lines = new ArrayList<String>();

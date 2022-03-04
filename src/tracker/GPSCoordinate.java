@@ -29,17 +29,17 @@ public class GPSCoordinate {
     }
 
     /**Create coordinates from String. */
-    public GPSCoordinate(String latitude, String longitude) throws IllegalArgumentException {
+    public GPSCoordinate(String latitude, String longitude) throws CoordinateFormatException {
         try {
             this.setLatitude(parseCoordinate(latitude));
             this.setLongitude(parseCoordinate(longitude));
         } catch (Exception e) {
-            throw new IllegalArgumentException("Could not parse coordinate.");
+            throw new CoordinateFormatException("Could not parse coordinate.");
         }
     }
 
     /**Parse single coordinate from String. */
-    private double parseCoordinate(String coord) throws NumberFormatException {
+    private double parseCoordinate(String coord) throws CoordinateFormatException {
         //todo coordinate check
         double degrees = 0;
         String[] coords = coord.split("°|'|\"");

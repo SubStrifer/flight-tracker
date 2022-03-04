@@ -3,12 +3,20 @@ package tracker;
 import java.util.ArrayList;
 import java.util.List;
 
-/**Airports (Towers) to be crossed in one Flight. */
+/**
+ * Airports (Towers) to be crossed in one Flight.
+*/
 public class FlightPlan {
     
     private ArrayList<Airport> airports;
 
-    /**Default constructor. */
+    /**
+     * FlightPlan constructor
+     * @param departure First airport
+     * @param destination Last airport
+     * @param airports All airports (should include departure and destination)
+     * @throws IllegalArgumentException
+     */
     public FlightPlan(Airport departure, Airport destination, List<Airport> airports) throws IllegalArgumentException {
         this.airports = new ArrayList<Airport>(airports);
 
@@ -21,13 +29,17 @@ public class FlightPlan {
         }
     }
 
-    /**Get the first Airport in the Flight. */
+    /**
+     * Get the first Airport in the Flight.
+     */
     public Airport getDeparture() {
         //todo should throw out of bounds
         return airports.get(0);
     }
 
-    /**Get the last Airport in the Flight. */
+    /**
+     * Get the last Airport in the Flight.
+     */
     public Airport getDestination() {
         //todo should throw out of bounds
         return airports.get(airports.size() - 1);

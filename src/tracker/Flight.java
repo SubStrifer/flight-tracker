@@ -8,9 +8,9 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.sound.sampled.DataLine;
-
-/**Represents and holds data of a single Flight. */
+/**
+ * Represents and holds data of a single Flight.
+ */
 public class Flight {
     
     private String number;
@@ -18,7 +18,9 @@ public class Flight {
     private LocalDateTime dateTime;
     private FlightPlan flightPlan;
 
-    /**Default constructor. */
+    /**
+     * Flight constructor.
+     */
     public Flight(String number, Aeroplane plane, LocalDateTime dateTime, FlightPlan flightPlan) {
         //todo checks
         this.number = number;
@@ -48,7 +50,9 @@ public class Flight {
         return (getDistance() / 100.0) * plane.getConsumption();
     }
 
-    /**Load all flights from a file. */
+    /**
+     * Load all flights from a file.
+     */
     public static ArrayList<Flight> loadFlights(FlightManager manager) {
         ArrayList<Flight> flights = new ArrayList<Flight>();
         List<String> lines = new ArrayList<String>();

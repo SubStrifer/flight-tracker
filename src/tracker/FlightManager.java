@@ -3,8 +3,6 @@ https://github.com/SubStrifer/flight-tracker.git * The FlightTracker program tra
  *
  * @author Krzysztof Czerwinski
  * @author Namitha Narayanan
- * @author Naitik Patel
- * @author Muzzammil Haqani
  * @version 1.0
  */
 package tracker;

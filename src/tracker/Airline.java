@@ -14,7 +14,7 @@ public class Airline {
 	private String name;
 
 	/**
-	 * 
+	 * Default constructor.
 	 */
 	public Airline(String code, String name) {
 		 if (Utils.emptyOrWhitespace(code)) {
@@ -29,7 +29,7 @@ public class Airline {
 	}
 
 	/**
-	 * @param args
+	 * Load all airlines from a file.
 	 */
 	 public static ArrayList<Airline> loadAirlines() {
 	

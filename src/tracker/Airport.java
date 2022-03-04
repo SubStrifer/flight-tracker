@@ -12,7 +12,9 @@ public class Airport {
     private String name;
     private GPSCoordinate coordinate;
 
-    /**Airport constructor. */
+    /**
+     * Airport constructor.
+     */
     public Airport(String code, String name, GPSCoordinate coordinate) throws IllegalArgumentException {
         if (Utils.emptyOrWhitespace(code) || Utils.emptyOrWhitespace(name) ||
             coordinate == null) {
@@ -47,7 +49,9 @@ public class Airport {
         return 12742.0 * Math.asin(Math.sqrt(trigo));
     }
 
-    /**Load all airports from a file. */
+    /**
+     * Load all airports from a file.
+     */
     public static ArrayList<Airport> loadAirports() {
         ArrayList<Airport> airports = new ArrayList<Airport>();
         List<String> lines = new ArrayList<String>();
