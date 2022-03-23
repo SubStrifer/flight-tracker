@@ -12,12 +12,7 @@ import java.util.List;
 
 import org.junit.Test;
 
-import tracker.Aeroplane;
-import tracker.Airport;
-import tracker.Flight;
-import tracker.FlightManager;
-import tracker.FlightPlan;
-import tracker.GPSCoordinate;
+import flight.tracking.system.*;
 
 public class TestFlight {
 

@@ -4,13 +4,12 @@ import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import org.junit.Test;
 
-import tracker.Airport;
-import tracker.FlightPlan;
-import tracker.GPSCoordinate;
+import flight.tracking.system.Airport;
+import flight.tracking.system.FlightPlan;
+import flight.tracking.system.GPSCoordinate;
 
 public class TestFlightPlan {
 	

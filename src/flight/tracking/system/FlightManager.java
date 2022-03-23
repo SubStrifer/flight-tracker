@@ -1,11 +1,12 @@
 /**
-https://github.com/SubStrifer/flight-tracker.git * The FlightTracker program tracks planes from different airlines flying between aiports.
+ * https://github.com/SubStrifer/flight-tracker.git
+ * The FlightTracker program tracks planes from different airlines flying between aiports.
  *
  * @author Krzysztof Czerwinski
  * @author Namitha Narayanan
  * @version 1.0
  */
-package tracker;
+package flight.tracking.system;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -21,7 +22,7 @@ import java.util.NoSuchElementException;
  */
 public class FlightManager {
 
-    private FlightTrackerGUI gui;
+    private Consol gui;
     private ArrayList<Airport> airports;
     private ArrayList<Aeroplane> planes;
     private ArrayList<Airline> airlines;
@@ -31,15 +32,14 @@ public class FlightManager {
      * FlightManager constructor.
      */
     public FlightManager() {
-        gui = new FlightTrackerGUI(this);
         airports = Airport.loadAirports();
         planes = Aeroplane.loadAeroplanes();
         airlines = Airline.loadAirlines();
         flights = Flight.loadFlights(this);
     }
 
-    public static void main(String[] args) {
-       FlightManager manager = new FlightManager();
+    public void setGui(Consol gui) {
+        this.gui = gui;
     }
 
     /**

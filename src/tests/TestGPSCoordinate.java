@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Assert;
 import org.junit.Test;
 
-import tracker.*;
+import flight.tracking.system.*;
 
 public class TestGPSCoordinate {
 

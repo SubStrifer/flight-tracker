@@ -6,8 +6,8 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
-import tracker.Aeroplane;
-import tracker.Airline;
+import flight.tracking.system.Aeroplane;
+import flight.tracking.system.Airline;
 
 public class TestAirline {
 

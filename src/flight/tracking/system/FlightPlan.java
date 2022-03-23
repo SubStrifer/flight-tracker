@@ -1,4 +1,4 @@
-package tracker;
+package flight.tracking.system;
 
 import java.util.ArrayList;
 import java.util.List;

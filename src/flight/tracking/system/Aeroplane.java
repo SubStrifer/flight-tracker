@@ -1,4 +1,4 @@
-package tracker;
+package flight.tracking.system;
 
 import java.io.IOException;
 import java.nio.file.Files;

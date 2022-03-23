@@ -6,10 +6,8 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
-import tracker.Aeroplane;
-import tracker.Airline;
-import tracker.Airport;
-import tracker.GPSCoordinate;
+import flight.tracking.system.Airport;
+import flight.tracking.system.GPSCoordinate;
 
 public class TestAirport {
 

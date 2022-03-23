@@ -1,4 +1,4 @@
-package tracker;
+package flight.tracking.system;
 import java.awt.event.WindowListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -34,10 +34,6 @@ public class FlightTrackerGUI extends JFrame {
         setVisible(true);
 
 
-        addWindowListener(new WindowAdapter() {
-            public void windowClosing(WindowEvent ev) {
-              manager.generateReport();
-            }
-          });
+        
     }
 }
