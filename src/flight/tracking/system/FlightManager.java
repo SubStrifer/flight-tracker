@@ -42,6 +42,26 @@ public class FlightManager {
         this.gui = gui;
     }
 
+    public ArrayList<Airport> getAirports() {
+        return airports;
+    }
+
+    public ArrayList<Aeroplane> getPlanes() {
+        return planes;
+    }
+
+    public ArrayList<Airline> getAirlines() {
+        return airlines;
+    }
+
+    public ArrayList<Flight> getFlights() {
+        return flights;
+    }
+
+    public void addFlight(Flight flight) {
+        flights.add(flight);
+    }
+
     /**
      * Get registered Aeroplane.
      * @param model name

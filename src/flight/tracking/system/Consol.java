@@ -573,6 +573,7 @@ public class Consol extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // Add
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -601,11 +602,12 @@ public class Consol extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTable1MouseClicked
 
+    // Exit
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    // Add
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         Object flight=jTable3.getModel().getValueAt(0, 0);
         Object plane=jTable3.getModel().getValueAt(0, 1);
@@ -675,48 +677,48 @@ public class Consol extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        File fileobj = new File ("D:/Flight_data.txt");
-        File aviation = new File ("D:/Aviation.txt");
-        try
-        {
+        // File fileobj = new File ("D:/Flight_data.txt");
+        // File aviation = new File ("D:/Aviation.txt");
+        // try
+        // {
 
-            Scanner input1 = new Scanner(fileobj);
-            Scanner input2 = new Scanner(aviation);
-            int i=0,j;
-            while (input1.hasNext())
-            {
-                String a = input1.nextLine();
-                String b [] = a.split(" ");
-                for (j=0; j<b.length; j++)
-                {
-                    //System.out.println(b[j]+"  "+j);
-                    jTable1.getModel().setValueAt(b[j],i,j);
-                }
-                i++;
-                k++;
-            }
-            i=0;
-            while (input2.hasNext())
-            {
-                String a = input2.nextLine();
-                //String b [] = a.split(" ");
-                jTable5.getModel().setValueAt(a,i,0);
-                i++;
-                //k++;
-            }
-        }
-        catch(Exception e)
-        {
-            System.out.println(e);
-        }
+        //     Scanner input1 = new Scanner(fileobj);
+        //     Scanner input2 = new Scanner(aviation);
+        //     int i=0,j;
+        //     while (input1.hasNext())
+        //     {
+        //         String a = input1.nextLine();
+        //         String b [] = a.split(" ");
+        //         for (j=0; j<b.length; j++)
+        //         {
+        //             //System.out.println(b[j]+"  "+j);
+        //             jTable1.getModel().setValueAt(b[j],i,j);
+        //         }
+        //         i++;
+        //         k++;
+        //     }
+        //     i=0;
+        //     while (input2.hasNext())
+        //     {
+        //         String a = input2.nextLine();
+        //         //String b [] = a.split(" ");
+        //         jTable5.getModel().setValueAt(a,i,0);
+        //         i++;
+        //         //k++;
+        //     }
+        // }
+        // catch(Exception e)
+        // {
+        //     System.out.println(e);
+        // }
     }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[])throws Exception {
+        manager = new FlightManager();
         /* Set the Nimbus look and feel */
-        FlightManager manager = new FlightManager();
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
@@ -756,6 +758,7 @@ public class Consol extends javax.swing.JFrame {
 
     }
 
+    private static FlightManager manager;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
