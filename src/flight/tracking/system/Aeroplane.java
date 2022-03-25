@@ -28,8 +28,16 @@ public class Aeroplane {
         //todo negative
         this.setModel(model);
         this.manufacturer = manufacturer;
-        this.speed = speed;
+        this.setSpeed(speed);
         this.setConsumption(consumption);
+    }
+
+    public float getSpeed() {
+        return speed;
+    }
+
+    private void setSpeed(float speed) {
+        this.speed = speed;
     }
 
     public float getConsumption() {

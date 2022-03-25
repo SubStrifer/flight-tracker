@@ -5,6 +5,7 @@ public class GPSCoordinate {
 
     private double latitude;
     private double longitude;
+    private final double radius = 6378;
     
     /**Default constructor. */
     public GPSCoordinate(double latitude, double longitude) {
@@ -54,5 +55,33 @@ public class GPSCoordinate {
             degrees = -Math.abs(degrees);
         }
         return degrees;
+    }
+
+    /**
+     * Calculate distance to other GPSCoordinate.
+     * @return distance in km
+     */
+    // public double distance(GPSCoordinate other) {
+    //     double deltaLongitude = other.longitude - longitude;
+    //     return radius * Math.acos(
+    //         Math.sin(latitude) * Math.sin(other.latitude) +
+    //         Math.cos(latitude) * Math.cos(other.latitude) * deltaLongitude
+    //     );
+    // }
+
+    /**
+     * Get distance from this GPSCoordinate to the other GPSCoordinate.
+     * @return distance in km
+     */
+    public double distanceTo(GPSCoordinate other) {
+        double radianLatitude1 = latitude * (Math.PI / 180.0);
+        double radianLongitude1 = longitude * (Math.PI / 180.0);
+        double radianLatitude2 = other.latitude * (Math.PI / 180.0);
+        double radianLongitude2 = other.longitude * (Math.PI / 180.0);
+        double deltaLatitude = radianLatitude2 - radianLatitude1;
+        double deltaLongitude = radianLongitude2 - radianLongitude1;
+        double trigo = Math.sin(Math.pow(deltaLatitude / 2.0, 2)) + Math.cos(radianLatitude1) *
+            Math.cos(radianLatitude2) * Math.sin(Math.pow(deltaLongitude / 2.0, 2));
+        return 12742.0 * Math.asin(Math.sqrt(trigo));
     }
 }

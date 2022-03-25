@@ -30,6 +30,14 @@ public class FlightPlan {
     }
 
     /**
+     * Get all airports (control towers) of this flight.
+     * @return
+     */
+    public ArrayList<Airport> getAirports() {
+        return airports;
+    }
+
+    /**
      * Get the first Airport in the Flight.
      */
     public Airport getDeparture() {

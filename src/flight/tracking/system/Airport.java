@@ -4,13 +4,15 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
-public class Airport {
+public class Airport extends Thread {
     
     private String code;
     private String name;
     private GPSCoordinate coordinate;
+    private HashMap<Flight, GPSCoordinate> positions;
 
     /**
      * Airport constructor.
@@ -23,6 +25,11 @@ public class Airport {
         this.setCode(code);
         this.name = name;
         this.coordinate = coordinate;
+        this.positions = new HashMap<Flight, GPSCoordinate>();
+    }
+
+    public GPSCoordinate getCoordinate() {
+        return coordinate;
     }
     
     public String getCode() {
@@ -33,20 +40,30 @@ public class Airport {
         this.code = code;
     }
 
+    public void run() {
+        try {
+            sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        //todo remove flights if no notify for a long time
+        //notify GUI
+    }
+
+    /**
+     * Notify tower of the position of the flight.
+     */
+    public synchronized void updatePosition(Flight flight, GPSCoordinate position) {
+        positions.put(flight, position);
+        System.out.println("Position updated");
+    }
+
     /**
      * Get distance from this Airport to the other Airport.
      * @return distance in km
      */
     public double distanceTo(Airport other) {
-        double radianLatitude1 = coordinate.getLatitude() * (Math.PI / 180.0);
-        double radianLongitude1 = coordinate.getLongitude() * (Math.PI / 180.0);
-        double radianLatitude2 = other.coordinate.getLatitude() * (Math.PI / 180.0);
-        double radianLongitude2 = other.coordinate.getLongitude() * (Math.PI / 180.0);
-        double deltaLatitude = radianLatitude2 - radianLatitude1;
-        double deltaLongitude = radianLongitude2 - radianLongitude1;
-        double trigo = Math.sin(Math.pow(deltaLatitude / 2.0, 2)) + Math.cos(radianLatitude1) *
-            Math.cos(radianLatitude2) * Math.sin(Math.pow(deltaLongitude / 2.0, 2));
-        return 12742.0 * Math.asin(Math.sqrt(trigo));
+        return coordinate.distanceTo(other.coordinate);
     }
 
     /**
