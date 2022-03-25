@@ -55,7 +55,6 @@ public class Airport extends Thread {
      */
     public synchronized void updatePosition(Flight flight, GPSCoordinate position) {
         positions.put(flight, position);
-        System.out.println("Position updated");
     }
 
     /**

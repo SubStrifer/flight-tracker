@@ -23,9 +23,25 @@ public class Airline {
 	            throw new IllegalArgumentException("The Airline name cannot be empty");
 	        }else {
 	        //todo negative
-	        this.code = code;
-	        this.name = name;
+	        this.setCode(code);
+	        this.setName(name);
 		}
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	private void setName(String name) {
+		this.name = name;
+	}
+
+	public String getCode() {
+		return code;
+	}
+
+	private void setCode(String code) {
+		this.code = code;
 	}
 
 	/**

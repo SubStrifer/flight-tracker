@@ -27,9 +27,17 @@ public class Aeroplane {
         }
         //todo negative
         this.setModel(model);
-        this.manufacturer = manufacturer;
+        this.setManufacturer(manufacturer);
         this.setSpeed(speed);
         this.setConsumption(consumption);
+    }
+
+    public String getManufacturer() {
+        return manufacturer;
+    }
+
+    private void setManufacturer(String manufacturer) {
+        this.manufacturer = manufacturer;
     }
 
     public float getSpeed() {
