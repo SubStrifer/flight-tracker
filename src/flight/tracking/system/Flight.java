@@ -8,6 +8,7 @@ import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -38,6 +39,10 @@ public class Flight extends Thread {
         start();
     }
 
+    public String getNumber() {
+        return number;
+    }
+
     public void run() {
         while(!landed) {
             try {
@@ -57,6 +62,7 @@ public class Flight extends Thread {
                 // Check if reached the last tower
                 if (i == towers.size() - 1) {
                     landed = true;
+                    //todo landed event
                     break;
                 }
                 double delta = towers.get(0).distanceTo(towers.get(1));
@@ -74,19 +80,17 @@ public class Flight extends Thread {
                     // abs(distance) is how much km is left to the next tower
                     // if it's less than delta/2 that means the tower i+1 is closer than tower i
                     if (Math.abs(distance) < delta / 2f) {
-                        towers.get(i+1).updatePosition(this, position);
-                        System.out.println(number + ": " + towers.get(i+1).getCode());
+                        towers.get(i+1).updatePosition(this, position, false);
+                        // Remove this fligh from the previous tower
+                        towers.get(i).updatePosition(this, position, true);
                     } else {
-                        //todo notify tower i
-                        towers.get(i).updatePosition(this, position);
-                        System.out.println(number + ": " + towers.get(i).getCode());
+                        towers.get(i).updatePosition(this, position, false);
                     }
                     // Break from the loop to skip other towers ahead
                     break;
                 }
             }
         }
-        
     }
 
     /**
@@ -97,9 +101,16 @@ public class Flight extends Thread {
     }
 
     /**
-     * Get distance travelled during this entire flight.
+     * Get distance travelled so far.
      */
     public double getDistance() {
+        return distance;
+    }
+
+    /**
+     * Get distance travelled during this entire flight.
+     */
+    public double getTotalDistance() {
         return flightPlan.calculateDistance();
     }
 
@@ -107,7 +118,7 @@ public class Flight extends Thread {
      * Get total fuel used on this flight.
      */
     public double getConsumption() {
-        return (getDistance() / 100.0) * plane.getConsumption();
+        return (getTotalDistance() / 100.0) * plane.getConsumption();
     }
 
     /**

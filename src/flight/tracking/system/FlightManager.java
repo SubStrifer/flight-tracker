@@ -24,7 +24,6 @@ import java.util.NoSuchElementException;
  */
 public class FlightManager {
 
-    private Consol gui;
     private ArrayList<Airport> airports;
     private ArrayList<Aeroplane> planes;
     private ArrayList<Airline> airlines;
@@ -38,10 +37,6 @@ public class FlightManager {
         planes = Aeroplane.loadAeroplanes();
         airlines = Airline.loadAirlines();
         flights = Flight.loadFlights(this);
-    }
-
-    public void setGui(Consol gui) {
-        this.gui = gui;
     }
 
     public ArrayList<Airport> getAirports() {

@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Airport extends Thread {
@@ -26,6 +27,7 @@ public class Airport extends Thread {
         this.name = name;
         this.coordinate = coordinate;
         this.positions = new HashMap<Flight, GPSCoordinate>();
+        start();
     }
 
     public GPSCoordinate getCoordinate() {
@@ -41,20 +43,53 @@ public class Airport extends Thread {
     }
 
     public void run() {
-        try {
-            sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        while(true) {
+            try {
+                sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            notifyObservers();
         }
-        //todo remove flights if no notify for a long time
-        //notify GUI
     }
+
+    /**
+	 * List to hold any observers
+	 */
+	private List<Observer> registeredObservers = new LinkedList<Observer>();
+
+	/**
+	 * Register an observer with this subject
+	 */
+	public void registerObserver(Observer obs) {
+		registeredObservers.add(obs);
+	}
+
+	/**
+	 * De-register an observer with this subject
+	 */
+	public void removeObserver(Observer obs) {
+		registeredObservers.remove(obs);
+	}
+
+	/**
+	 * Inform all registered observers that there's been an update
+	 */
+	public synchronized void notifyObservers() {
+		for (Observer obs : registeredObservers) {
+            obs.update(this, positions);
+        }
+	}
 
     /**
      * Notify tower of the position of the flight.
      */
-    public synchronized void updatePosition(Flight flight, GPSCoordinate position) {
-        positions.put(flight, position);
+    public synchronized void updatePosition(Flight flight, GPSCoordinate position, boolean remove) {
+        if (!remove) {
+            positions.put(flight, position);
+        } else {
+            positions.remove(flight);
+        }
     }
 
     /**

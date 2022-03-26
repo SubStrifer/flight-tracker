@@ -6,7 +6,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.table.*;
-public class Consol extends javax.swing.JFrame {
+public class Consol extends javax.swing.JFrame implements Observer {
     int k=0;
     public Consol() {
         initComponents();
@@ -745,8 +745,12 @@ public class Consol extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 Consol consol = new Consol();
-                manager.setGui(consol);
                 consol.setVisible(true);
+
+                // Observe all airports (towers)
+                for (Airport airport : manager.getAirports()) {
+                    airport.registerObserver(consol);
+                }
 
                 consol.addWindowListener(new WindowAdapter() {
                     public void windowClosing(WindowEvent ev) {
@@ -801,4 +805,12 @@ public class Consol extends javax.swing.JFrame {
     private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable5;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void update(Airport tower, HashMap<Flight, GPSCoordinate> positions) {
+        for (Flight flight : positions.keySet()) {
+            positions.get(flight);// this gives GPSCoordinate of flight
+            System.out.println("GUI update: " + tower.getCode() + ": " + flight.getNumber());
+        }
+    }
 }
