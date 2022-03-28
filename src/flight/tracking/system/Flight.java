@@ -39,6 +39,14 @@ public class Flight extends Thread {
         start();
     }
 
+    /**
+     * Does this Flight arrived at its destination?
+     * @return true if arrived
+     */
+    public boolean getLanded() {
+        return landed;
+    }
+
     public String getNumber() {
         return number;
     }
@@ -50,6 +58,12 @@ public class Flight extends Thread {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            // Check if simulation should be updated, continue if not
+            if (!FlightManager.getUpdateSimulation())
+            {
+                continue;
+            }
+
             // Calculate delta time from the start time of the thread
             //todo temp speed up time and * 0.1
             long deltaTime = Duration.between(startTime, Instant.now()).toSeconds();
@@ -62,7 +76,6 @@ public class Flight extends Thread {
                 // Check if reached the last tower
                 if (i == towers.size() - 1) {
                     landed = true;
-                    //todo landed event
                     break;
                 }
                 double delta = towers.get(0).distanceTo(towers.get(1));
@@ -81,7 +94,7 @@ public class Flight extends Thread {
                     // if it's less than delta/2 that means the tower i+1 is closer than tower i
                     if (Math.abs(distance) < delta / 2f) {
                         towers.get(i+1).updatePosition(this, position, false);
-                        // Remove this fligh from the previous tower
+                        // Remove this flight from the previous tower
                         towers.get(i).updatePosition(this, position, true);
                     } else {
                         towers.get(i).updatePosition(this, position, false);

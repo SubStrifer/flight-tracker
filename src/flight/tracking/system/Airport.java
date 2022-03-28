@@ -14,6 +14,7 @@ public class Airport extends Thread {
     private String name;
     private GPSCoordinate coordinate;
     private HashMap<Flight, GPSCoordinate> positions;
+    private List<Observer> registeredObservers = new LinkedList<Observer>();
 
     /**
      * Airport constructor.
@@ -49,14 +50,13 @@ public class Airport extends Thread {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            notifyObservers();
+            // Check if simulation should be updated
+            if (FlightManager.getUpdateSimulation())
+            {
+                notifyObservers();
+            }
         }
     }
-
-    /**
-	 * List to hold any observers
-	 */
-	private List<Observer> registeredObservers = new LinkedList<Observer>();
 
 	/**
 	 * Register an observer with this subject

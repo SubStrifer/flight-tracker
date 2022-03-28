@@ -28,6 +28,7 @@ public class FlightManager {
     private ArrayList<Aeroplane> planes;
     private ArrayList<Airline> airlines;
     private ArrayList<Flight> flights;
+    private static boolean updateSimulation;
 
     /**
      * FlightManager constructor.
@@ -37,6 +38,7 @@ public class FlightManager {
         planes = Aeroplane.loadAeroplanes();
         airlines = Airline.loadAirlines();
         flights = Flight.loadFlights(this);
+        updateSimulation = true;
     }
 
     public ArrayList<Airport> getAirports() {
@@ -57,6 +59,21 @@ public class FlightManager {
 
     public void addFlight(Flight flight) {
         flights.add(flight);
+    }
+
+    /**
+     * Returns true if simulation is updating.
+     */
+    public static synchronized boolean getUpdateSimulation() {
+        return updateSimulation;
+    }
+
+    /**
+     * Switches Flight position updates and GUI notifications on and off.
+     * @param simulate true to simulate
+     */
+    public static synchronized void setUpdateSimulation(boolean simulate) {
+        updateSimulation = simulate;
     }
 
     /**
