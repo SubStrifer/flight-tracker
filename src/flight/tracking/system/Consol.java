@@ -755,6 +755,7 @@ public class Consol extends javax.swing.JFrame implements Observer {
                 consol.addWindowListener(new WindowAdapter() {
                     public void windowClosing(WindowEvent ev) {
                       manager.generateReport();
+                      manager.generateLogs();
                     }
                   });
             }

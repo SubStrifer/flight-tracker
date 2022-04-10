@@ -86,6 +86,10 @@ public class Airport extends Thread {
      */
     public synchronized void updatePosition(Flight flight, GPSCoordinate position, boolean remove) {
         if (!remove) {
+            // Log if the flight just started communication with this tower
+            if (!positions.containsKey(flight)) {
+                Logger.getInstance().log("Flight " + flight.toString() + " started communication with tower " + name);
+            }
             positions.put(flight, position);
         } else {
             positions.remove(flight);

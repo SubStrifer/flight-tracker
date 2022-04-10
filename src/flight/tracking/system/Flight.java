@@ -36,6 +36,7 @@ public class Flight extends Thread {
         this.distance = 0f;
         this.startTime = Instant.now();
         this.landed = false;
+        Logger.getInstance().log("Flight entered airspace: " + toString());
         start();
     }
 
@@ -76,6 +77,7 @@ public class Flight extends Thread {
                 // Check if reached the last tower
                 if (i == towers.size() - 1) {
                     landed = true;
+                    Logger.getInstance().log("Flight landed " + toString());
                     break;
                 }
                 double delta = towers.get(0).distanceTo(towers.get(1));
@@ -132,6 +134,11 @@ public class Flight extends Thread {
      */
     public double getConsumption() {
         return (getTotalDistance() / 100.0) * plane.getConsumption();
+    }
+
+    @Override
+    public String toString() {
+        return number;
     }
 
     /**

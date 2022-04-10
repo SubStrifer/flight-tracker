@@ -144,6 +144,18 @@ public class FlightManager {
         }
     }
 
+    /**
+     * Generate report and save it to a file.
+     */
+    public void generateLogs() {
+        // Write to file
+        try {
+            Files.writeString(Paths.get("data/logs.txt"), Logger.getInstance().getLogs(), StandardOpenOption.CREATE);
+        } catch (IOException e) {
+            System.out.println("Could not write logs file.");
+        }
+    }
+
     private class AirlineData {
         public int flights;
         public double distance;
