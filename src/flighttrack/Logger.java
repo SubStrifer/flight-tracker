@@ -1,4 +1,4 @@
-package flight.tracking.system;
+package flighttrack;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

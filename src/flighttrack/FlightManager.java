@@ -8,7 +8,7 @@
  * @author Naitik Kapatel
  * @version 1.0
  */
-package flight.tracking.system;
+package flighttrack;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -126,7 +126,7 @@ public class FlightManager {
         }
         // CO2 emission, 3kg/1l of kerosene
         double carbonDioxide = totalFuel * 3.0;
-        // Add number of flights per comapny to the report
+        // Add number of flights per company to the report
         report += "Flights:\n";
         for(HashMap.Entry<String, AirlineData> entry : flights.entrySet()) {
             report += entry.getKey() + ": " + entry.getValue().flights + ", " +
@@ -138,7 +138,7 @@ public class FlightManager {
         report += "Estimated total CO2 emissions: " + Math.round(carbonDioxide) + "kg\n";
         // Write to file
         try {
-            Files.writeString(Paths.get("data/report.txt"), report, StandardOpenOption.CREATE);
+            Files.writeString(Paths.get("report.txt"), report, StandardOpenOption.CREATE);
         } catch (IOException e) {
             System.out.println("Could not write report file.");
         }
@@ -150,7 +150,7 @@ public class FlightManager {
     public void generateLogs() {
         // Write to file
         try {
-            Files.writeString(Paths.get("data/logs.txt"), Logger.getInstance().getLogs(), StandardOpenOption.CREATE);
+            Files.writeString(Paths.get("logs.txt"), Logger.getInstance().getLogs(), StandardOpenOption.CREATE);
         } catch (IOException e) {
             System.out.println("Could not write logs file.");
         }

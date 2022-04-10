@@ -1,4 +1,4 @@
-package flight.tracking.system;
+package flighttrack;
 
 public final class Utils {
     public static boolean emptyOrWhitespace(String string) {

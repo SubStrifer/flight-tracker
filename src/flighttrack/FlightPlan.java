@@ -1,4 +1,4 @@
-package flight.tracking.system;
+package flighttrack;
 
 import java.util.ArrayList;
 import java.util.List;

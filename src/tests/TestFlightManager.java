@@ -3,7 +3,7 @@ package tests;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
-import flight.tracking.system.*;
+import flighttrack.*;
 
 public class TestFlightManager {
     

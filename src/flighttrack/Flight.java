@@ -1,4 +1,4 @@
-package flight.tracking.system;
+package flighttrack;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -146,19 +146,10 @@ public class Flight extends Thread {
      */
     public static ArrayList<Flight> loadFlights(FlightManager manager) {
         ArrayList<Flight> flights = new ArrayList<Flight>();
-        List<String> lines = new ArrayList<String>();
-
-        // Read file
-        try {
-            lines = Files.readAllLines(Paths.get("data/flights.txt"));
-        } catch (IOException e) {
-            System.out.println("Could not read flights file.");
-            return flights;
-        }
 
         // Create Flight from each line
         DateTimeFormatter format = DateTimeFormatter.ofPattern("dd:MM:yyyy HH:mm");
-        for (String line : lines) {
+        for (String line : Resources.getInstance().loadResource("flights.txt")) {
             try {
                 String[] flight = line.split(";");
                 String number = flight[0].trim();

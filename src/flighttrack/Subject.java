@@ -1,4 +1,4 @@
-package flight.tracking.system;
+package flighttrack;
 
 public interface Subject {
 	

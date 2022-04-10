@@ -1,4 +1,4 @@
-package flight.tracking.system;
+package flighttrack;
 
 /**Class represents GPS coordinates in degrees. */
 public class GPSCoordinate {

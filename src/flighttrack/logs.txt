@@ -1,0 +1,4 @@
+10:04:2022 21:35: Flight entered airspace: AF670
+10:04:2022 21:35: Flight entered airspace: BA534
+10:04:2022 21:35: Flight AF670 started communication with tower Paris Charles de Gaulle
+10:04:2022 21:35: Flight BA534 started communication with tower Heathrow

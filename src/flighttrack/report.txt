@@ -1,0 +1,6 @@
+Report
+Flights:
+AF: 1, -744km
+BA: 1, -7154km
+Average total fuel consumption: -1957l/100km
+Estimated total CO2 emissions: 463837kg

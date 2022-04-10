@@ -1,4 +1,4 @@
-package flight.tracking.system;
+package flighttrack;
 
 import java.io.IOException;
 
@@ -50,18 +50,9 @@ public class Airline {
 	 public static ArrayList<Airline> loadAirlines() {
 	
 	        ArrayList<Airline> airlines = new ArrayList<Airline>();
-	        List<String> listOfAirlines = new ArrayList<String>();
-
-	        // Read file
-	        try {
-	            listOfAirlines = Files.readAllLines(Paths.get("data/airlines.txt"));
-	        } catch (IOException e) {
-	            System.out.println("Could not read airlines file.");
-	            return airlines;
-	        }
 
 	        // Create Airlines from each line
-	        for (String airlinelist : listOfAirlines) {
+	        for (String airlinelist : Resources.getInstance().loadResource("airlines.txt")) {
 	            try {
 	                String[] airline = airlinelist.split(";");
 	                airlines.add(new Airline(airline[0].trim(), airline[1].trim()));

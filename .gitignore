@@ -172,4 +172,8 @@ $RECYCLE.BIN/
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,windows,java,visualstudiocode,eclipse
 
-data/report.txt
+report.txt
+logs.txt
+/nbproject/private/
+/build/
+/dist/

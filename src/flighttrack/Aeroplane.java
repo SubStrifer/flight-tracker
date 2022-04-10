@@ -1,6 +1,9 @@
-package flight.tracking.system;
+package flighttrack;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -69,18 +72,9 @@ public class Aeroplane {
      */
     public static ArrayList<Aeroplane> loadAeroplanes() {
         ArrayList<Aeroplane> planes = new ArrayList<Aeroplane>();
-        List<String> lines = new ArrayList<String>();
-
-        // Read file
-        try {
-            lines = Files.readAllLines(Paths.get("data/planes.txt"));
-        } catch (IOException e) {
-            System.out.println("Could not read planes file.");
-            return planes;
-        }
 
         // Create Aeroplane from each line
-        for (String line : lines) {
+        for (String line : Resources.getInstance().loadResource("planes.txt")) {
             try {
                 String[] plane = line.split(";");
                 float speed = Float.parseFloat(plane[2]);

@@ -12,7 +12,7 @@ import java.util.List;
 
 import org.junit.Test;
 
-import flight.tracking.system.*;
+import flighttrack.*;
 
 public class TestFlight {
 

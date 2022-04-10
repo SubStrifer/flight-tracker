@@ -7,9 +7,7 @@ import java.util.Arrays;
 
 import org.junit.Test;
 
-import flight.tracking.system.Airport;
-import flight.tracking.system.FlightPlan;
-import flight.tracking.system.GPSCoordinate;
+import flighttrack.*;
 
 public class TestFlightPlan {
 	

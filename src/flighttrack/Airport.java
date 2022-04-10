@@ -1,6 +1,9 @@
-package flight.tracking.system;
+package flighttrack;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -109,18 +112,9 @@ public class Airport extends Thread {
      */
     public static ArrayList<Airport> loadAirports() {
         ArrayList<Airport> airports = new ArrayList<Airport>();
-        List<String> lines = new ArrayList<String>();
-
-        // Read file
-        try {
-            lines = Files.readAllLines(Paths.get("data/airports.txt"));
-        } catch (IOException e) {
-            System.out.println("Could not read airports file.");
-            return airports;
-        }
 
         // Create Airport from each line
-        for (String line : lines) {
+        for (String line : Resources.getInstance().loadResource("airports.txt")) {
             try {
                 String[] airport = line.split(";");
                 GPSCoordinate coordinate = new GPSCoordinate(airport[2], airport[3]);
