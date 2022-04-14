@@ -28,7 +28,6 @@ public class Aeroplane {
         } else if (speed <= 0f || consumption <= 0f) {
             throw new IllegalArgumentException("Aeroplane speed and consumption must be a positive value.");
         }
-        //todo negative
         this.setModel(model);
         this.setManufacturer(manufacturer);
         this.setSpeed(speed);

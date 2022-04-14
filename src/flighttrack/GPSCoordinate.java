@@ -41,7 +41,6 @@ public class GPSCoordinate {
 
     /**Parse single coordinate from String. */
     private double parseCoordinate(String coord) throws CoordinateFormatException {
-        //todo coordinate check
         double degrees = 0;
         String[] coords = coord.split("°|'|\"");
         // Convert coordinates to degrees

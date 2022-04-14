@@ -22,7 +22,6 @@ public class Airline {
 	        } else if (Utils.emptyOrWhitespace(name)) {
 	            throw new IllegalArgumentException("The Airline name cannot be empty");
 	        }else {
-	        //todo negative
 	        this.setCode(code);
 	        this.setName(name);
 		}

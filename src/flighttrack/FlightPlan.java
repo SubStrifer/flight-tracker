@@ -41,7 +41,6 @@ public class FlightPlan {
      * Get the first Airport in the Flight.
      */
     public Airport getDeparture() {
-        //todo should throw out of bounds
         return airports.get(0);
     }
 
@@ -49,7 +48,6 @@ public class FlightPlan {
      * Get the last Airport in the Flight.
      */
     public Airport getDestination() {
-        //todo should throw out of bounds
         return airports.get(airports.size() - 1);
     }
 

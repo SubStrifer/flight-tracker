@@ -28,7 +28,6 @@ public class Flight extends Thread {
      * Flight constructor.
      */
     public Flight(String number, Aeroplane plane, LocalDateTime dateTime, FlightPlan flightPlan) {
-        //todo checks
         this.number = number;
         this.plane = plane;
         this.dateTime = dateTime;
@@ -66,7 +65,6 @@ public class Flight extends Thread {
             }
 
             // Calculate delta time from the start time of the thread
-            //todo temp speed up time and * 0.1
             long deltaTime = Duration.between(startTime, Instant.now()).toSeconds();
             // Calculate total distance travelled
             distance = deltaTime * 0.1 * plane.getSpeed();

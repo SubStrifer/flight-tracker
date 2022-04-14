@@ -19,6 +19,9 @@ public class Logger {
 		return instance;
 	}
 
+	/**
+	 * Add log to the system.
+	 */
 	public synchronized void log(String content) {
 		if (Utils.emptyOrWhitespace(content))
 			throw new IllegalArgumentException("Log content cannot be empty or whitespace.");
@@ -26,6 +29,9 @@ public class Logger {
 		System.out.println(new Log(content).toString());
 	}
 
+	/**
+	 * Get all logs, each separated by new line.
+	 */
 	public String getLogs() {
 		String contents = "";
 		for (Log log : logs) {

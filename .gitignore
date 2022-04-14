@@ -82,7 +82,7 @@ local.properties
 .mtj.tmp/
 
 # Package Files #
-*.jar
+#*.jar
 *.war
 *.nar
 *.ear
@@ -176,4 +176,3 @@ report.txt
 logs.txt
 /nbproject/private/
 /build/
-/dist/
