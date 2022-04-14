@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Airport extends Thread {
+public class Airport extends Thread implements Subject {
     
     private String code;
     private String name;
@@ -64,6 +64,7 @@ public class Airport extends Thread {
 	/**
 	 * Register an observer with this subject
 	 */
+    @Override
 	public void registerObserver(Observer obs) {
 		registeredObservers.add(obs);
 	}
@@ -71,6 +72,7 @@ public class Airport extends Thread {
 	/**
 	 * De-register an observer with this subject
 	 */
+    @Override
 	public void removeObserver(Observer obs) {
 		registeredObservers.remove(obs);
 	}
@@ -78,6 +80,7 @@ public class Airport extends Thread {
 	/**
 	 * Inform all registered observers that there's been an update
 	 */
+    @Override
 	public synchronized void notifyObservers() {
 		for (Observer obs : registeredObservers) {
             obs.update(this, positions);

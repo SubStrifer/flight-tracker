@@ -59,8 +59,7 @@ public class Flight extends Thread {
                 e.printStackTrace();
             }
             // Check if simulation should be updated, continue if not
-            if (!FlightManager.getUpdateSimulation())
-            {
+            if (!FlightManager.getUpdateSimulation()) {
                 continue;
             }
 
